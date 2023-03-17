@@ -7,11 +7,31 @@
   <body>
     <h1>Southern Homestay Maintenance Form</h1>
     <form>
+      <label for="name">Reported By:</label>
+      <select id="name" name="name">
+        <option value="" disabled selected>Select a name...</option>
+        <option value="Niko">Niko</option>
+        <option value="Jay">Jay</option>
+        <option value="Teck">Teck</option>
+        <option value="Laxmi">Laxmi</option>
+        <option value="Rev">Rev</option>
+        <option value="Kian">Kian</option>
+        <option value="Chon">Chon</option>
+        <option value="Sharon">Sharon</option>
+        <option value="new">New...</option>
+      </select>
+
+      <label for="unit">Unit Number:</label>
+      <select id="unit" name="unit">
+        <option value="" disabled selected>Select a unit number...</option>
+        <option value="KSL A1708">KSL A1708</option>
+        <option value="KSL A1710">KSL A1710</option>
+        <option value="KSL B1903">KSL B1903</option>
+        <option value="new">New...</option>
+      </select>
+
       <label for="issue">Maintenance Issue:</label>
-      <input type="text" id="issue" name="issue" placeholder="Enter maintenance issue...">
-      
-      <label for="room">Room Number:</label>
-      <input type="text" id="room" name="room" placeholder="Enter room number...">
+      <input type="text" id="issue" name="issue" placeholder="Enter maintenance issue..." required>
       
       <label for="description">Issue Description:</label>
       <textarea id="description" name="description" placeholder="Describe the issue in detail..."></textarea>
@@ -22,9 +42,9 @@
         <option value="medium">Medium</option>
         <option value="high">High</option>
       </select>
-      
-      <label for="date">Date Reported:</label>
-      <input type="date" id="date" name="date">
+
+      <label for="duedate">Due Date:</label>
+      <input type="date" id="duedate" name="duedate">
       
       <label for="status">Status:</label>
       <select id="status" name="status">

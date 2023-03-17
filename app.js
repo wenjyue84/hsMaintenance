@@ -1,85 +1,59 @@
-/* General styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+// Store user list in an array
+let userList = ['Niko', 'Jay', 'Teck', 'Laxmi', 'Rev', 'Kian', 'Chon', 'Sharon'];
+
+// Store unit list in an array
+let unitList = ['KSL A1708', 'KSL A1710', 'KSL B1903'];
+
+// Add event listener to form submit button
+document.querySelector('form').addEventListener('submit', function(e) {
+  e.preventDefault(); // Prevent form from submitting and refreshing the page
+  
+  // Get form values
+  let user = document.querySelector('#user').value;
+  let unit = document.querySelector('#unit').value;
+  let issue = document.querySelector('#issue').value;
+  let description = document.querySelector('#description').value;
+  let priority = document.querySelector('#priority').value;
+  let date = document.querySelector('#date').value;
+  let status = document.querySelector('#status').value;
+  
+  // Validate form values
+  if (!user || !unit || !issue) {
+    alert('Please fill in all required fields.'); // Show error message
+    return; // Stop execution
   }
   
-  /* Styles for maintenance form */
-  form {
-    max-width: 500px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  // Add new user to user list if not exists
+  if (!userList.includes(user)) {
+    userList.push(user);
   }
   
-  form label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
+  // Add new unit to unit list if not exists
+  if (!unitList.includes(unit)) {
+    unitList.push(unit);
   }
   
-  form input[type="text"],
-  form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 3px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-  }
+  // Sort unit list in ascending order
+  unitList.sort();
   
-  form textarea {
-    height: 150px;
-  }
+  // Display updated user and unit list in dropdown
+  let userOptions = '';
+  let unitOptions = '';
   
-  form button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 3px;
-    cursor: pointer;
-  }
+  userList.forEach(function(user) {
+    userOptions += `<option value="${user}">${user}</option>`;
+  });
   
-  /* Styles for maintenance status */
-  .status {
-    margin: 20px auto;
-    max-width: 500px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
+  unitList.forEach(function(unit) {
+    unitOptions += `<option value="${unit}">${unit}</option>`;
+  });
   
-  .status h2 {
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
+  document.querySelector('#user').innerHTML = userOptions;
+  document.querySelector('#unit').innerHTML = unitOptions;
   
-  .status ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+  // Do something with the form data, such as sending it to a server
+  console.log(`User: ${user}\nUnit Number: ${unit}\nMaintenance Issue: ${issue}\nDescription: ${description}\nPriority: ${priority}\nDate Reported: ${date}\nStatus: ${status}`);
   
-  .status li {
-    margin-bottom: 10px;
-  }
-  
-  .status .completed {
-    color: green;
-    font-weight: bold;
-  }
-  
-  .status .in-progress {
-    color: orange;
-    font-weight: bold;
-  }
-  
-  .status .not-started {
-    color: red;
-    font-weight: bold;
-  }
-  
+  // Reset form
+  document.querySelector('form').reset();
+});
