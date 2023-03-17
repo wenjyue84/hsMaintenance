@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Southern Homestay Maintenance Form</title>
+    <link rel="stylesheet" href="app.css">
+  </head>
+  <body>
+    <h1>Southern Homestay Maintenance Form</h1>
+    <form>
+      <label for="issue">Maintenance Issue:</label>
+      <input type="text" id="issue" name="issue" placeholder="Enter maintenance issue...">
+      
+      <label for="room">Room Number:</label>
+      <input type="text" id="room" name="room" placeholder="Enter room number...">
+      
+      <label for="description">Issue Description:</label>
+      <textarea id="description" name="description" placeholder="Describe the issue in detail..."></textarea>
+      
+      <label for="priority">Priority:</label>
+      <select id="priority" name="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      
+      <label for="date">Date Reported:</label>
+      <input type="date" id="date" name="date">
+      
+      <label for="status">Status:</label>
+      <select id="status" name="status">
+        <option value="reported">Reported</option>
+        <option value="inprogress">In Progress</option>
+        <option value="completed">Completed</option>
+      </select>
+      
+      <button type="submit">Submit</button>
+    </form>
+    <script src="app.js"></script>
+  </body>
+</html>
